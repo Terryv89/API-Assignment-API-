@@ -1,4 +1,4 @@
-<%@ page import="com.example.customerapi.CustomerList" %>
+<%@ page import="com.example.customerapi.Info" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,8 +10,8 @@
 <br>
 <p> Here is Some java code on the website !</p>
 <p><%
-    CustomerList customerList = new CustomerList();
-    out.print(customerList.getCustomerArrayList());
+    Info info = new Info();
+    out.print(info.getInformation());
 %></p>
 <br>
 <p>Here is some music, you're welcome</p>
