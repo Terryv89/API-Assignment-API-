@@ -41,18 +41,18 @@ public class CustomerDBController {
     @GetMapping("/customerdb/{id}")
     public ResponseEntity<CustomerDB> getCustomerById(@PathVariable Long id) {
         CustomerDB employee = customerDBRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Customer not exist with id :" + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Customer doesnt not exist with id :" + id));
         return ResponseEntity.ok(employee);
     }
 
     @PutMapping("/customerdb/{id}")
-    public ResponseEntity<CustomerDB> updateCustomer(@PathVariable Long id, @RequestBody CustomerDB employeeDetails){
+    public ResponseEntity<CustomerDB> updateCustomer(@PathVariable Long id, @RequestBody CustomerDB customerDBDetails){
         CustomerDB customerDB = customerDBRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Customer not exist with id :" + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Customer does not exist with id :" + id));
 
-        customerDB.setName(employeeDetails.getName());
-        customerDB.setLastName(employeeDetails.getLastName());
-        customerDB.setEmailId(employeeDetails.getEmailId());
+        customerDB.setName(customerDBDetails.getName());
+        customerDB.setLastName(customerDBDetails.getLastName());
+        customerDB.setEmailId(customerDBDetails.getEmailId());
 
         CustomerDB updatedCustomer = customerDBRepository.save(customerDB);
         return ResponseEntity.ok(updatedCustomer);
@@ -61,7 +61,7 @@ public class CustomerDBController {
     @DeleteMapping("/customerdb/{id}")
     public ResponseEntity<Map<String, Boolean>> deleteCustomer(@PathVariable Long id){
         CustomerDB customerDB = customerDBRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Customer not exist with id :" + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Customer does not exist with id :" + id));
 
         customerDBRepository.delete(customerDB);
         Map<String, Boolean> response = new HashMap<>();

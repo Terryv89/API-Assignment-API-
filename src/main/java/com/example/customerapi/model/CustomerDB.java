@@ -8,7 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-
+//could use lombok but didn't.
 public class CustomerDB {
 
     @Id
