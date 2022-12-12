@@ -49,7 +49,7 @@ public class Main {
 
         try {
             URL url = new URL("http://localhost:8080/api/v1/customerdb");
-            String json = "{\"name\": \"Turry\", \"lastName\": \"Runker\",\"emailId\":\"Turry@gmail.com\"}";
+            String json = "{\"name\": \"Turry\", \"lastName\": \"Banker\",\"emailId\":\"Turry@gmail.com\"}";
             HttpURLConnection getConnection = (HttpURLConnection) url.openConnection();
             getConnection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
             getConnection.setDoOutput(true);
@@ -85,7 +85,7 @@ public class Main {
 
         try {
             URL url = new URL("http://localhost:8080/api/v1/customerdb/" + newCustomerId);
-            String json = "{\"name\": \"Turry\", \"lastName\": \"Brunker\",\"emailId\":\"Turry@gmail.com\"}";
+            String json = "{\"name\": \"Turry\", \"lastName\": \"Banker\",\"emailId\":\"Turry@gmail.com\"}";
             HttpURLConnection getConnection = (HttpURLConnection) url.openConnection();
             getConnection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
             getConnection.setDoOutput(true);
@@ -111,7 +111,7 @@ public class Main {
                 JSONParser jsonParser = new JSONParser();
                 JSONObject jsonObject = (JSONObject) jsonParser.parse(String.valueOf(jsonString));
                 var newLastName = jsonObject.get("lastName").toString();
-                System.out.println("Was the last name changed: " + (Objects.equals(newLastName, "Brunker")));
+                System.out.println("Was the last name changed: " + (Objects.equals(newLastName, "Banker")));
 
             } else {
                 System.out.println("The put failed");
